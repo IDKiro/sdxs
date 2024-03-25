@@ -56,7 +56,7 @@ We demonstrate its efficacy in facilitating image-to-image conversions utilizing
 If you find this work useful for your research, please cite our paper:
 
 ```bibtex
-@article{park2021nerfies,
+@article{song2024sdxs,
   author    = {Yuda Song, Zehao Sun, Xuanwu Yin},
   title     = {SDXS: Real-Time One-Step Latent Diffusion Models with Image Conditions},
   journal   = {arxiv},
