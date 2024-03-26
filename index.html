@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SDXS: Real-Time One-Step Latent Diffusion Models with Image Conditions">
+  <meta name="keywords" content="Diffusion, Conditional Image Generation, Real-Time">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDXS: Real-Time One-Step Latent Diffusion Models with Image Conditions</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SDXS: Real-Time One-Step Latent Diffusion Models with Image
+              Conditions</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Yuda Song,</span>
+              <span class="author-block">
+                Zehao Sun,</span>
+              <span class="author-block">
+                Xuanwu Yin,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Xiaomi Inc.</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://github.com/IDKiro/sdxs" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2403.16627" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+              </div>
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://huggingface.co/IDKiro/sdxs-512-0.9" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-cloud-download-alt"></i>
+                    </span>
+                    <span>SDXS-512-v0.9</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fas fa-cloud-download-alt"></i>
+                    </span>
+                    <span>SDXS-512-v1.0</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-light">
+                    <span class="icon">
+                      <i class="fas fa-cloud-download-alt"></i>
+                    </span>
+                    <span>SDXS-1024-v1.0</span>
+                  </a>
+                </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent advancements in diffusion models have positioned them at the forefront of image generation. Despite their superior performance, diffusion models are not without drawbacks; they are characterized by complex architectures and substantial computational demands, resulting in significant latency due to their iterative sampling process. To mitigate these limitations, we introduce a dual approach involving model miniaturization and a reduction in sampling steps, aimed at significantly decreasing model latency. Our methodology leverages knowledge distillation to streamline the U-Net and image decoder architectures, and introduces an innovative one-step DM training technique that utilizes feature matching and score distillation. We present two models, SDXS-512 and SDXS-1024, achieving inference speeds of approximately <b>100 FPS</b> (30x faster than SD v1.5) and <b>30 FPS</b> (60x faster than SDXL) on a single GPU, respectively. Moreover, our training approach offers promising applications in image-conditioned control, facilitating efficient image-to-image translation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+      <div class="container is-max-desktop content is-centered has-text-left">
+        <h2>Overview</h2>
+        Assuming the image generation time is limited to <b>1 second</b>, then SDXL can only use 16 NFEs to produce a slightly blurry image, while SDXS-1024 can generate 30 clear images. Besides, our proposed method can also train ControlNet.
+        <img src="./static/images/intro.png">
+      </div>
+      <div class="container is-max-desktop content is-centered has-text-left">
+        <h2>Method</h2>
+        <h3>Model Acceleration</h3>
+        <div class="container is-max-desktop content">
+          We train an extremely light-weight image decoder to mimic the original VAE decoder’s output through a combination of output distillation loss and GAN loss. We also leverage the block removal distillation strategy to efficiently transfer the knowledge from the original U-Net to a more compact version.
+        </div>
+        <div class="container is-max-desktop content is-centered has-text-centered">
+          <img src="./static/images/method1.png">
+        </div>
+        <div class="container is-max-desktop content">
+          SDXS demonstrates efficiency far surpassing that of the base models, even achieving image generation at 100 FPS for 512x512 images and 30 FPS for 1024x1024 images on the GPU.
+        </div>
+        <div class="container is-max-desktop content is-centered has-text-centered">
+          <img src="./static/images/speed.png">
+        </div>
+      </div>
+
+      <div class="container is-max-desktop content is-centered has-text-left">
+        <h3>Text-to-Image</h3>
+        <div class="container is-max-desktop content">
+          To reduce the NFEs, we suggest straightening the sampling trajectory and quickly finetuning the multi-step model into a one-step model by replacing the distillation loss function with the proposed feature matching loss. Then, we extend the Diff-Instruct training strategy, using the gradient of the proposed feature matching loss to replace the gradient provided by score distillation in the latter half of the timestep.
+        </div>
+
+        <div class="container is-max-desktop content is-centered has-text-centered">
+          <img src="./static/images/method2.png">
+        </div>
+
+        <div class="container is-max-desktop content">
+          Despite a noticeable downsizing in both the sizes of the models and the number of sampling steps required, the prompt-following capability of SDXS-512 remains superior to that of SD v1.5. This observation is consistently validated in the performance of SDXS-1024 as well.  
+        </div>
+
+        <div class="container is-max-desktop content is-centered has-text-centered">
+          <img src="./static/images/imgs.png">
+        </div>
+
+        <h3>Image-to-Image</h3>
+
+        <div class="container is-max-desktop content">
+          We extend our proposed training strategy to the training of ControlNet, relying on adding the pretrained ControlNet to the score function. 
+        </div>
+
+        <div class="container is-max-desktop content is-centered has-text-centered">
+          <img src="./static/images/method3.png">
+        </div>
+
+        <div class="container is-max-desktop content">
+          We demonstrate its efficacy in facilitating image-to-image conversions utilizing ControlNet, specifically for transformations involving canny edges and depth maps.
+        </div>
+
+        <div class="container is-max-desktop content is-centered has-text-centered">
+          <img src="./static/images/control_imgs.png">
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{song2024sdxs,
+  author    = {Yuda Song, Zehao Sun, Xuanwu Yin},
+  title     = {SDXS: Real-Time One-Step Latent Diffusion Models with Image Conditions},
+  journal   = {arxiv},
+  year      = {2024},
+}</code></pre>
+    </div>
+  </section>
+
+</body>
+
+</html>
