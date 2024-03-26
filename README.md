@@ -6,7 +6,7 @@
 [![Paper](https://img.shields.io/badge/Paper-arXiv-blue)](https://arxiv.org/abs/2403.16627) 
 [![SDXS-512-0.9](https://img.shields.io/badge/SDXS-512%20v0.9-gold)](https://huggingface.co/IDKiro/sdxs-512-0.9)
 
-by Yuda Song, Zehao Sun, Xuanwu Yin
+Yuda Song, Zehao Sun, Xuanwu Yin
 
 Xiaomi Inc.
 
