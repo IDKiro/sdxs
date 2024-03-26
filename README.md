@@ -6,9 +6,9 @@
 [![Paper](https://img.shields.io/badge/Paper-arXiv-blue)](https://arxiv.org/abs/2403.16627) 
 [![SDXS-512-0.9](https://img.shields.io/badge/SDXS-512%20v0.9-gold)](https://huggingface.co/IDKiro/sdxs-512-0.9)
 [![Hugging Face](https://img.shields.io/badge/Demo-%F0%9F%A4%97%20Hugging%20Face-66cdaa)](https://huggingface.co/spaces/ameerazam08/SDXS-GPU-Demo)
-Yuda Song, Zehao Sun, Xuanwu Yin
 
-Xiaomi Inc.
+
+Yuda Song, Zehao Sun, Xuanwu YinXiaomi Inc.
 
 </div>
 
