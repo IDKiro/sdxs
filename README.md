@@ -23,7 +23,7 @@ Assuming the image generation time is limited to <b>1 second</b>, then SDXL can 
 
 ## News
 
-- **March 25, 2024:** [SDXS-512-0.9](https://huggingface.co/IDKiro/sdxs-512-0.9) is released, it is a old version of SDXS-512.
+- **March 25, 2024:** [SDXS-512-0.9](https://huggingface.co/IDKiro/sdxs-512-0.9) is released, it is an old version of SDXS-512.
 
 
 ## Method
