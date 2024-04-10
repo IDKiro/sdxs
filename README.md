@@ -2,11 +2,11 @@
 
 ## SDXS: Real-Time One-Step Latent Diffusion Models with Image Conditions
 
-[![Project](https://img.shields.io/badge/Page-Project-green?logo=Houzz&logoColor=white)](https://idkiro.github.io/sdxs)
-[![Paper](https://img.shields.io/badge/arXiv-Paper-blue?logo=arxiv)](https://arxiv.org/abs/2403.16627) 
-[![SDXS-512-0.9](https://img.shields.io/badge/🤗Huggingface-SDXS--512--0.9-gold)](https://huggingface.co/IDKiro/sdxs-512-0.9)
-[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗Huggingface-SDXS--512--DreamShaper-gold)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper)
-[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗Huggingface-SDXS--512--DreamShaper--Sketch-gold)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch/tree/main)
+[![Project](https://img.shields.io/badge/Project-green?logo=Houzz&logoColor=white)](https://idkiro.github.io/sdxs)
+[![Paper](https://img.shields.io/badge/Paper-blue?logo=arxiv)](https://arxiv.org/abs/2403.16627) 
+[![SDXS-512-0.9](https://img.shields.io/badge/🤗SDXS--512--0.9-lightyellow)](https://huggingface.co/IDKiro/sdxs-512-0.9)
+[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗SDXS--512--DreamShaper-lightyellow)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper)
+[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗SDXS--512--DreamShaper--Sketch-lightyellow)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch/tree/main)
 
 Yuda Song, Zehao Sun, Xuanwu Yin
 
