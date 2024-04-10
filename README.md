@@ -98,3 +98,6 @@ If you find this work useful for your research, please cite our paper:
   journal   = {arxiv},
   year      = {2024},
 }
+```
+
+**Acknowledgment**: the demo code is based on https://github.com/GaParmar/img2img-turbo.
