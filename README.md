@@ -6,7 +6,7 @@
 [![Paper](https://img.shields.io/badge/Paper-blue?logo=arxiv)](https://arxiv.org/abs/2403.16627) 
 [![SDXS-512-0.9](https://img.shields.io/badge/🤗SDXS--512--0.9-darkorange)](https://huggingface.co/IDKiro/sdxs-512-0.9)
 [![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗SDXS--512--DreamShaper-darkorange)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper)
-[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗SDXS--512--DreamShaper--Sketch-darkorange)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch/tree/main)
+[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗SDXS--512--DreamShaper--Sketch-darkorange)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch)
 
 *Yuda Song, Zehao Sun, Xuanwu Yin*
 
