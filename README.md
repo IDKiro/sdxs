@@ -2,7 +2,7 @@
 
 ## SDXS: Real-Time One-Step Latent Diffusion Models with Image Conditions
 
-[![Project](https://img.shields.io/badge/Project-limegreen?logo=Houzz&logoColor=black)](https://idkiro.github.io/sdxs)
+[![Project](https://img.shields.io/badge/Project-limegreen?logo=Houzz&logoColor=white)](https://idkiro.github.io/sdxs)
 [![Paper](https://img.shields.io/badge/Paper-blue?logo=arxiv)](https://arxiv.org/abs/2403.16627) 
 [![SDXS-512-0.9](https://img.shields.io/badge/🤗SDXS--512--0.9-grey)](https://huggingface.co/IDKiro/sdxs-512-0.9)
 [![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗SDXS--512--DreamShaper-grey)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper)
