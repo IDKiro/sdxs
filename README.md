@@ -2,9 +2,11 @@
 
 ## SDXS: Real-Time One-Step Latent Diffusion Models with Image Conditions
 
-[![Project](https://img.shields.io/badge/Page-Project-orange)](https://idkiro.github.io/sdxs)
-[![Paper](https://img.shields.io/badge/Paper-arXiv-blue)](https://arxiv.org/abs/2403.16627) 
-[![SDXS-512-0.9](https://img.shields.io/badge/SDXS-512%20v0.9-gold)](https://huggingface.co/IDKiro/sdxs-512-0.9)
+[![Project](https://img.shields.io/badge/Page-Project-green?logo=Houzz&logoColor=white)](https://idkiro.github.io/sdxs)
+[![Paper](https://img.shields.io/badge/arXiv-Paper-blue?logo=arxiv)](https://arxiv.org/abs/2403.16627) 
+[![SDXS-512-0.9](https://img.shields.io/badge/🤗Huggingface-SDXS--512--0.9-gold)](https://huggingface.co/IDKiro/sdxs-512-0.9)
+[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗Huggingface-SDXS--512--DreamShaper-gold)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper)
+[![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗Huggingface-SDXS--512--DreamShaper--Sketch-gold)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch/tree/main)
 
 Yuda Song, Zehao Sun, Xuanwu Yin
 
@@ -23,7 +25,33 @@ Assuming the image generation time is limited to <b>1 second</b>, then SDXL can 
 
 ## News
 
+- **April 10, 2024:** [SDXS-512-DreamShaper](https://huggingface.co/IDKiro/sdxs-512-dreamshaper) and [SDXS-512-DreamShaper-Sketch](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch) is released. We also upload our demo code.
 - **March 25, 2024:** [SDXS-512-0.9](https://huggingface.co/IDKiro/sdxs-512-0.9) is released, it is a old version of SDXS-512.
+
+## Usage
+
+Install requirements:
+
+```
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+pip install transformers accelerate diffusers==0.25.1 gradio==3.43.1
+```
+
+Run text-to-image demo:
+
+```
+python demo.py
+```
+
+Run sketch-to-image demo:
+
+```
+python demo_sketch.py
+```
+
+<p align="left" >
+<img src="images\sketch.gif" width="800" />
+</p>
 
 
 ## Method
