@@ -26,8 +26,6 @@ Moreover, our proposed method can also train ControlNet, offering promising appl
 <img src="images\sketch.gif" width="800" />
 </p>
 
-## Breaking News
-
 ## News
 
 - **April 10, 2024:** [SDXS-512-DreamShaper](https://huggingface.co/IDKiro/sdxs-512-dreamshaper) and [SDXS-512-DreamShaper-Sketch](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch) is released. We also upload our demo code.
