@@ -8,8 +8,8 @@ import torch
 from diffusers import StableDiffusionPipeline, AutoencoderKL, AutoencoderTiny
 from peft import PeftModel
 
-device = "cpu"   # Linux & Windows
-weight_type = torch.float32  # torch.float16 works as well, but pictures seem to be a bit worse
+device = "cuda"   # Linux & Windows
+weight_type = torch.float16  # torch.float16 works as well, but pictures seem to be a bit worse
 
 pipe = StableDiffusionPipeline.from_pretrained("IDKiro/sdxs-512-dreamshaper", torch_dtype=weight_type)
 pipe.unet = PeftModel.from_pretrained(pipe.unet, "IDKiro/sdxs-512-dreamshaper-anime")
@@ -32,7 +32,7 @@ def run(
     prompt: str,
     device_type="GPU",
     vae_type=None,
-    param_dtype='torch.float32',
+    param_dtype='torch.float16',
 ) -> PIL.Image.Image:
     if vae_type == "tiny vae":
         pipe.vae = vae_tiny
@@ -64,7 +64,7 @@ examples = [
 ]
 
 with gr.Blocks(css="style.css") as demo:
-    gr.Markdown("# SDXS-512-DreamShaper Anime (only CPU now)")
+    gr.Markdown("# SDXS-512-DreamShaper Anime")
     with gr.Group():
         with gr.Row():
             with gr.Column(min_width=685):
@@ -80,9 +80,9 @@ with gr.Blocks(css="style.css") as demo:
                     
                 device_choices = ['GPU','CPU']
                 device_type = gr.Radio(device_choices, label='Device',  
-                                            value=device_choices[1],
-                                            interactive=False,
-                                            info='Only CPU now.')
+                                            value=device_choices[0],
+                                            interactive=True,
+                                            info='Please choose GPU if you have a GPU.')
 
                 vae_choices = ['tiny vae','large vae']
                 vae_type = gr.Radio(vae_choices, label='Image Decoder Type',  
