@@ -56,11 +56,7 @@ python demo_sketch.py
 
 ## Train
 
-We provide the code for finetuning SDXS with LoRA!
-
-```
-
-```
+We may provide the code for finetuning SDXS with LoRA.
 
 ## Method
 
