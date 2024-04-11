@@ -4,12 +4,15 @@ from io import BytesIO
 import gradio as gr
 import PIL.Image
 import torch
-from diffusers import StableDiffusionPipeline, AutoencoderKL, AutoencoderTiny
 
-device = "cuda"   # Linux & Windows
-weight_type = torch.float16  # torch.float16 works as well, but pictures seem to be a bit worse
+from diffusers import StableDiffusionPipeline, AutoencoderKL, AutoencoderTiny
+from peft import PeftModel
+
+device = "cpu"   # Linux & Windows
+weight_type = torch.float32  # torch.float16 works as well, but pictures seem to be a bit worse
 
 pipe = StableDiffusionPipeline.from_pretrained("IDKiro/sdxs-512-dreamshaper", torch_dtype=weight_type)
+pipe.unet = PeftModel.from_pretrained(pipe.unet, "IDKiro/sdxs-512-dreamshaper-anime")
 pipe.to(torch_device=device, torch_dtype=weight_type)
 
 vae_tiny = AutoencoderTiny.from_pretrained("IDKiro/sdxs-512-dreamshaper", subfolder="vae")
@@ -29,7 +32,7 @@ def run(
     prompt: str,
     device_type="GPU",
     vae_type=None,
-    param_dtype='torch.float16',
+    param_dtype='torch.float32',
 ) -> PIL.Image.Image:
     if vae_type == "tiny vae":
         pipe.vae = vae_tiny
@@ -57,11 +60,11 @@ def run(
 
 
 examples = [
-    "A photo of beautiful mountain with realistic sunset and blue lake, highly detailed, masterpiece",
+    "Self-portrait oil painting, a beautiful cyborg with golden hair, 8k",
 ]
 
 with gr.Blocks(css="style.css") as demo:
-    gr.Markdown("# SDXS-512-DreamShaper")
+    gr.Markdown("# SDXS-512-DreamShaper Anime (only CPU now)")
     with gr.Group():
         with gr.Row():
             with gr.Column(min_width=685):
@@ -77,9 +80,9 @@ with gr.Blocks(css="style.css") as demo:
                     
                 device_choices = ['GPU','CPU']
                 device_type = gr.Radio(device_choices, label='Device',  
-                                            value=device_choices[0],
-                                            interactive=True,
-                                            info='Please choose GPU if you have a GPU.')
+                                            value=device_choices[1],
+                                            interactive=False,
+                                            info='Only CPU now.')
 
                 vae_choices = ['tiny vae','large vae']
                 vae_type = gr.Radio(vae_choices, label='Image Decoder Type',  
