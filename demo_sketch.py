@@ -18,7 +18,7 @@ controlnet = ControlNetModel.from_pretrained(
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
     "IDKiro/sdxs-512-dreamshaper", controlnet=controlnet, torch_dtype=weight_type
 )
-pipe.to("cuda")
+pipe.to(device)
 
 style_list = [
     {
@@ -249,6 +249,7 @@ async () => {
 """
 
 with gr.Blocks(css="style.css") as demo:
+    gr.Markdown("# SDXS-512-DreamShaper-Sketch")
     # these are hidden buttons that are used to trigger the canvas changes
     line = gr.Checkbox(label="line", value=False, elem_id="cb-line")
     eraser = gr.Checkbox(label="eraser", value=False, elem_id="cb-eraser")
