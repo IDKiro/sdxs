@@ -10,7 +10,7 @@ from diffusers import ControlNetModel, StableDiffusionControlNetPipeline
 import gradio as gr
 
 device = "cuda"   # Linux & Windows
-weight_type = torch.float32  # torch.float16 works as well, but pictures seem to be a bit worse
+weight_type = torch.float16  # torch.float16 works as well, but pictures seem to be a bit worse
 
 controlnet = ControlNetModel.from_pretrained(
     "IDKiro/sdxs-512-dreamshaper-sketch", torch_dtype=weight_type
@@ -82,13 +82,29 @@ def randomize_seed_fn(seed: int, randomize_seed: bool) -> int:
     return seed
 
 
-def run(image, prompt, prompt_template, style_name, controlnet_conditioning_scale):
+def run(
+    image, 
+    prompt, 
+    prompt_template, 
+    style_name, 
+    controlnet_conditioning_scale,
+    device_type="GPU",
+    param_dtype='torch.float16',
+):
+    if device_type == "CPU":
+        device = "cpu" 
+        param_dtype = 'torch.float32'
+    else:
+        device = "cuda"
+    
+    pipe.to(torch_device=device, torch_dtype=torch.float16 if param_dtype == 'torch.float16' else torch.float32)
+
     print(f"prompt: {prompt}")
     print("sketch updated")
     if image is None:
         ones = Image.new("L", (512, 512), 255)
-        temp_uri = pil_image_to_data_url(ones)
-        return ones, gr.update(link=temp_uri), gr.update(link=temp_uri)
+        temp_url = pil_image_to_data_url(ones)
+        return ones, gr.update(link=temp_url), gr.update(link=temp_url)
     prompt = prompt_template.replace("{prompt}", prompt)
     control_image = image.convert("RGB")
     control_image = Image.fromarray(255 - np.array(control_image))
@@ -105,12 +121,12 @@ def run(image, prompt, prompt_template, style_name, controlnet_conditioning_scal
         controlnet_conditioning_scale=controlnet_conditioning_scale,
     ).images[0]
 
-    input_sketch_uri = pil_image_to_data_url(control_image)
-    output_image_uri = pil_image_to_data_url(output_pil)
+    input_sketch_url = pil_image_to_data_url(control_image)
+    output_image_url = pil_image_to_data_url(output_pil)
     return (
         output_pil,
-        gr.update(link=input_sketch_uri),
-        gr.update(link=output_image_uri),
+        gr.update(link=input_sketch_url),
+        gr.update(link=output_image_url),
     )
 
 
@@ -135,8 +151,8 @@ async () => {
     globalThis.theSketchDownloadFunction = () => {
         console.log("test")
         var link = document.createElement("a");
-        dataUri = document.getElementById('download_sketch').href
-        link.setAttribute("href", dataUri)
+        dataUrl = document.getElementById('download_sketch').href
+        link.setAttribute("href", dataUrl)
         link.setAttribute("download", "sketch.png")
         document.body.appendChild(link); // Required for Firefox
         link.click();
@@ -150,8 +166,8 @@ async () => {
     globalThis.theOutputDownloadFunction = () => {
         console.log("test output download function")
         var link = document.createElement("a");
-        dataUri = document.getElementById('download_output').href
-        link.setAttribute("href", dataUri);
+        dataUrl = document.getElementById('download_output').href
+        link.setAttribute("href", dataUrl);
         link.setAttribute("download", "output.png");
         document.body.appendChild(link); // Required for Firefox
         link.click();
@@ -262,6 +278,20 @@ with gr.Blocks(css="style.css") as demo:
             
             controlnet_conditioning_scale = gr.Slider(label="Control Strength", minimum=0, maximum=1, step=0.01, value=0.8)
 
+                 
+            device_choices = ['GPU','CPU']
+            device_type = gr.Radio(device_choices, label='Device',  
+                                        value=device_choices[0],
+                                        interactive=True,
+                                        info='Please choose GPU if you have a GPU.')
+            
+            dtype_choices = ['torch.float16','torch.float32']
+            param_dtype = gr.Radio(dtype_choices,label='torch.weight_type',  
+                                        value=dtype_choices[0],
+                                        interactive=True,
+                                        info='To save GPU memory, use torch.float16. For better quality, use torch.float32.')
+                
+
         with gr.Column(elem_id="column_process", min_width=50, scale=0.4):
             gr.Markdown("## SDXS-Sketch", elem_id="description")
             run_button = gr.Button("Run", min_width=50)
@@ -281,7 +311,7 @@ with gr.Blocks(css="style.css") as demo:
     line.change(fn=lambda x: gr.update(value=not x), inputs=[line], outputs=[eraser]).then(update_canvas, [line, eraser], [image])
 
     demo.load(None,None,None,_js=scripts)
-    inputs = [image, prompt, prompt_temp, style, controlnet_conditioning_scale]
+    inputs = [image, prompt, prompt_temp, style, controlnet_conditioning_scale, device_type, param_dtype]
     outputs = [result, download_sketch, download_output]
     prompt.submit(fn=run, inputs=inputs, outputs=outputs)
     style.change(lambda x: styles[x], inputs=[style], outputs=[prompt_temp]).then(
