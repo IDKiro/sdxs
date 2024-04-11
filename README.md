@@ -6,10 +6,9 @@
 [![Paper](https://img.shields.io/badge/arxiv-Paper-blue?logo=arxiv)](https://arxiv.org/abs/2403.16627) 
 [![SDXS-512-0.9](https://img.shields.io/badge/🤗Model-512--0.9-gold)](https://huggingface.co/IDKiro/sdxs-512-0.9)
 [![SDXS-512-DreamShaper](https://img.shields.io/badge/🤗Model-512--DreamShaper-gold)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper)
-[![SDXS-512-DreamShaper-Sketch](https://img.shields.io/badge/🤗Model-512--DreamShaper--Sketch-gold)](https://huggingface.co/spaces/IDKiro/SDXS-512-DreamShaper)
-
-[![SDXS-512-DreamShaper-Demo](https://img.shields.io/badge/🤗Demo-512--DreamShaper-pink)](https://huggingface.co/spaces/IDKiro/SDXS-512-DreamShaper)
-[![SDXS-512-DreamShaper-Sketch-Demo](https://img.shields.io/badge/🤗Demo-512--DreamShaper--Sketch-pink)](https://huggingface.co/spaces/IDKiro/SDXS-512-DreamShaper-Sketch)
+[![SDXS-512-DreamShaper-Sketch](https://img.shields.io/badge/🤗Model-512--DreamShaper--Sketch-gold)](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch)
+[![SDXS-512-DreamShaper-Demo](https://img.shields.io/badge/🤗Demo-Text2Image-pink)](https://huggingface.co/spaces/IDKiro/SDXS-512-DreamShaper)
+[![SDXS-512-DreamShaper-Sketch-Demo](https://img.shields.io/badge/🤗Demo-Sketch2Image-pink)](https://huggingface.co/spaces/IDKiro/SDXS-512-DreamShaper-Sketch)
 
 
 *Yuda Song, Zehao Sun, Xuanwu Yin*
