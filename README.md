@@ -38,8 +38,9 @@ Moreover, our proposed method can also train ControlNet, offering promising appl
 Install requirements:
 
 ```
-conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-pip install transformers accelerate peft diffusers==0.25.1 gradio==3.43.1
+conda env create -n sdxs
+conda activate sdxs
+pip install -r requirements.txt
 ```
 
 Run text-to-image demo:
