@@ -33,38 +33,49 @@ Moreover, our proposed method can also train ControlNet, offering promising appl
 - **April 10, 2024:** [SDXS-512-DreamShaper](https://huggingface.co/IDKiro/sdxs-512-dreamshaper) and [SDXS-512-DreamShaper-Sketch](https://huggingface.co/IDKiro/sdxs-512-dreamshaper-sketch) are released. We also upload our demo code.
 - **March 25, 2024:** [SDXS-512-0.9](https://huggingface.co/IDKiro/sdxs-512-0.9) is released, it is an old version of SDXS-512.
 
-## ⚡️Run Demo
+## Prepare
+
+Create a new environment:
+
+```sh
+conda create -n sdxs
+```
+
+Activate the new environment:
+
+```sh
+conda activate sdxs
+```
 
 Install requirements:
 
+```sh
+conda install python=3.10 pytorch=2.2.1 torchvision torchaudio pytorch-cuda=11.8 xformers=0.0.25 -c pytorch -c nvidia -c xformers
+pip install -r requirements.txt
 ```
-conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-pip install transformers accelerate peft diffusers==0.25.1 gradio==3.43.1
-```
+
+## ⚡️Demo
+
 
 Run text-to-image demo:
 
-```
+```sh
 python demo.py
 ```
 
 Run anime-style text-to-image (LoRA) demo:
 
-```
+```sh
 python demo_anime.py
 ```
 
 Run sketch-to-image (ControlNet) demo:
 
-```
+```sh
 python demo_sketch.py
 ```
 
-## ❤️Train
-
-We may provide the code for finetuning SDXS with LoRA.
-
-## 🚀Method
+## ✒️Method
 
 ### Model Acceleration
 
