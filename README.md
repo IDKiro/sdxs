@@ -72,7 +72,7 @@ Run sketch-to-image (ControlNet) demo:
 python demo_sketch.py
 ```
 
-## ❤️Train
+## 💡Train
 
 I found that [DMD2](https://github.com/tianweiy/DMD2) release the training code, and its training scheme is identical to the new version of SDXS, so you can refer to it. 
 Unfortunately, the SDXS training code is not allowed to be open-sourced and will most likely not be updated again.
